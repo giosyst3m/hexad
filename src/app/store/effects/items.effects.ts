@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Actions, Effect } from '@ngrx/effects';
 import * as itemsActions from '../actions';
-import { map, switchMap } from "rxjs/operators";
+import { map, switchMap, catchError } from "rxjs/operators";
 import { ItemService } from "src/app/services/item.service";
+import { of } from "rxjs";
 
 @Injectable()
 export class ItemsEffects {
@@ -19,7 +20,8 @@ export class ItemsEffects {
                         switchMap( () => {
                             return this.itemsService.getItems()
                                         .pipe(
-                                            map( items => new itemsActions.LoadItemsSuccess(items))
+                                            map( items => new itemsActions.LoadItemsSuccess(items)),
+                                            catchError( error => of( new itemsActions.LoadItemsError(error) ))
                                         );
                         })
                     )
