@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
   items: Item[] = [];
   constructor( private itemService: ItemService) { 
-    this.itemService.getUsers()
+    this.itemService.getItems()
       .subscribe( (resp:any) => {
         this.items = resp;
         console.log(resp);

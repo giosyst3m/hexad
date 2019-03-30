@@ -13,10 +13,18 @@ export class ItemService {
   constructor( private http: HttpClient ) { }
 
 
-  getUsers() {
+  getItems() {
     return this.http.get(`${ this.url }/items.json`)
           .pipe(
             map( resp => resp)
           );
   }
+
+  getItemById( id: string ) {
+    return this.http.get(`${ this.url }/users/${ id }`)
+          .pipe(
+            map( resp => resp['data'])
+          );
+  }
+
 }
