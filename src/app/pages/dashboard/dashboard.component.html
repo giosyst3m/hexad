@@ -27,10 +27,10 @@
     <div class="x_content">
         
         <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              CHarry Potter
-              <label class="label label-primary">Movie</label>
-              <span class="badge badge-primary badge-pill"><ngb-rating rate="5"></ngb-rating></span>
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of items" >
+              {{ item.name }}<br>
+              <label class="label label-primary">{{ item.category }}</label>
+              <span class="pull-right text-warning" style="font-size:large" ><ngb-rating rate="{{ item.rating }}"></ngb-rating></span>
             </li>
           </ul>
 

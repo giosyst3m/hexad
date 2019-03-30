@@ -1,4 +1,6 @@
+import { Item } from 'src/app/models/item.model';
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  items: Item[] = [];
+  constructor( private itemService: ItemService) { 
+    this.itemService.getUsers()
+      .subscribe( (resp:any) => {
+        this.items = resp;
+        console.log(resp);
+      })
+  }
 
   ngOnInit() {
   }
