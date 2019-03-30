@@ -22,13 +22,15 @@ export function itemsReducer( state = stateInit, action: fromItems.itemsActions 
         case fromItems.LOAD_ITEMS:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
             };
         case fromItems.LOAD_ITEMS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
+                error: null,
                 items: [...action.items]
             };
         case fromItems.LOAD_ITEMS_ERROR:
