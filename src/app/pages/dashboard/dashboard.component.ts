@@ -1,6 +1,8 @@
 import { Item } from 'src/app/models/item.model';
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from 'src/app/services/item.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import * as itemsActions from '../../store/actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,15 +12,11 @@ import { ItemService } from 'src/app/services/item.service';
 export class DashboardComponent implements OnInit {
 
   items: Item[] = [];
-  constructor( private itemService: ItemService) { 
-    this.itemService.getItems()
-      .subscribe( (resp:any) => {
-        this.items = resp;
-        console.log(resp);
-      })
+  constructor( private  store: Store<AppState> ) { 
   }
 
   ngOnInit() {
+    this.store.dispatch( new itemsActions.LoadItems() );
   }
 
 }

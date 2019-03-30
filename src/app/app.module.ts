@@ -17,8 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 // NgRx
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 import { appReducers } from './store/app.reducer';
-
+import { appEffects } from './store/effects';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { appReducers } from './store/app.reducer';
     ServiceModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot(appEffects),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
