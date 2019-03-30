@@ -16,7 +16,7 @@ export class LoadItemsError implements Action {
 export class LoadItemsSuccess implements Action {
     readonly type = LOAD_ITEMS_SUCCESS;
 
-    constructor( public items: Item[] ){}
+    constructor( public items: any ){}
 }
 
 export type itemsActions =  LoadItems |
