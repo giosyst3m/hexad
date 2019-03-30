@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 // NgRx
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
+import { appReducers } from './store/app.reducer';
 
 
 
@@ -31,6 +31,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     PagesModule,
     ServiceModule,
     HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [Title],
   bootstrap: [AppComponent]
