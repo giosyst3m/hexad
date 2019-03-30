@@ -1,0 +1,27 @@
+<div class="top_nav">
+    <div class="nav_menu">
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Giovanni Ariza
+                        <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a [routerLink]="['/']" class="active"><i class="fa fa-dashboard pull-right"></i>Dashboard</a></li>
+                    </ul>
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a href="javascript:;" id="orderCart" class=" text-mobil dropdown-toggle info-number hidden" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-shopping-cart"></i> Haxed
+                        <span id="orderNumber" class="badge bg-green">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
