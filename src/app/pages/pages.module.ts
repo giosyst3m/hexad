@@ -10,7 +10,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
 
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -35,7 +35,8 @@ import { ItemComponent } from './item/item.component';
         DataTablesModule,
         FormsModule,
         ReactiveFormsModule,
-        NgxPermissionsModule.forRoot()
+        NgxPermissionsModule.forRoot(),
+        NgbModule
     ]
 })
 

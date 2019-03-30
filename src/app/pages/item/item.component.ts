@@ -11,13 +11,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ItemComponent implements OnInit {
   items: Item[] = [];
   form: FormGroup
-
+  currentRate = 0;
   constructor() {
     this.form = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      category: new FormControl(true),
-      rating: new FormControl(true),
-      id: new FormControl(),
+      name: new FormControl('', [Validators.required]),
+      category: new FormControl('', [Validators.required]),
+      rating: new FormControl(0, [Validators.required]),
     });
    }
 
