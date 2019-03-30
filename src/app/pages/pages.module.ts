@@ -14,12 +14,14 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ItemComponent } from './item/item.component';
 
 
 @NgModule({
     declarations: [
         PagesComponent,
         DashboardComponent,
+        ItemComponent,
     ],
     exports: [
         DashboardComponent,
