@@ -2,6 +2,8 @@ import { APP_NAME } from './../../config/config';
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
   selector: 'app-item',
@@ -12,7 +14,9 @@ export class ItemComponent implements OnInit {
   items: Item[] = [];
   form: FormGroup
   currentRate = 0;
-  constructor() {
+  constructor(
+      private store: Store<AppState>
+  ) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       category: new FormControl('', [Validators.required]),
@@ -25,6 +29,11 @@ export class ItemComponent implements OnInit {
 
   save() {
     console.log(this.form.value);
+    if( this.form.invalid ){
+      return;
+    }
+
+    
   }
 
 }
