@@ -23,6 +23,7 @@
         "@cloudinary/angular-5.x": "^1.0.2",
         "@ng-bootstrap/ng-bootstrap": "^4.1.0",
         "@ngrx/store": "^7.4.0",
+        "@ngrx/store-devtools": "^7.4.0",
         "@types/datatables.net": "^1.10.11",
         "angular-datatables": "^6.0.0",
         "cloudinary-core": "^2.5.0",

@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 // Modules
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,15 +10,14 @@ import { ServiceModule } from './services/service.module';
 // Component
 import { AppComponent } from './app.component';
 
-
-
-
 // Rutas
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
+// NgRx
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducers } from './store/app.reducer';
 
 
 
@@ -31,6 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     PagesModule,
     ServiceModule,
     HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [Title],
   bootstrap: [AppComponent]
