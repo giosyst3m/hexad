@@ -44,6 +44,12 @@ export function itemsReducer( state = stateInit, action: fromItems.itemsActions 
                     url: action.payload.url
                 }
             };
+        case fromItems.ADD_ITEM:
+            const item = new Item( action.name, action.category, action.rating);
+            return {
+                ...state,
+                items: [...state.items,item]
+            }
         default:
             return state;
     }

@@ -4,6 +4,7 @@ import { Item } from 'src/app/models/item.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
+import * as fromItem from '../../store/actions/items.actions';
 
 @Component({
   selector: 'app-item',
@@ -28,12 +29,18 @@ export class ItemComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form.value);
+    
     if( this.form.invalid ){
       return;
     }
 
-    
+    const action = new fromItem.AddItemAction(
+                        this.form.controls['name'].value, 
+                        this.form.controls['category'].value,
+                        this.form.controls['rating'].value
+                        )
+  this.store.dispatch(action);
+   this.form.reset();
   }
 
 }

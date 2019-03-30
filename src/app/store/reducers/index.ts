@@ -1,2 +1,3 @@
 
-export * from './items.reducer'
+export * from './items.reducer';
+export * from './item.reducer';

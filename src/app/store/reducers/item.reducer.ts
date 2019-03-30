@@ -1,4 +1,4 @@
-import { Item } from './../../models/item.model';
+import { Item } from '../../models/item.model';
 import * as fromItem from '../actions/item.actions';
 
 const init: Item[] = [];
