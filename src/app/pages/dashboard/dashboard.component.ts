@@ -1,3 +1,4 @@
+import { APP_NAME } from './../../config/config';
 import { FormControl, Validators } from '@angular/forms';
 import { PNotifyService } from './../../services/shared/p-notify.service';
 import { Item } from 'src/app/models/item.model';
@@ -5,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as itemsActions from '../../store/actions';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,10 +22,11 @@ export class DashboardComponent implements OnInit {
   orderBy: string = '';
   rows: number = 0;
   rate = new FormControl(null, Validators.required);
-
+  
   constructor( private  store: Store<AppState>,
-    private _pnotify: PNotifyService, ) { 
-      
+    private _pnotify: PNotifyService, 
+    private titleService: Title ) { 
+      this.titleService.setTitle(APP_NAME + 'Dashboard' );
   }
 
   ngOnInit() {
