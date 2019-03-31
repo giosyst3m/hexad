@@ -77,6 +77,7 @@ export class DashboardComponent implements OnInit {
   }
 
   save(id:number, rate:number ){
-    console.log(id, rate);
+    const action = new itemsActions.UpdateItemRateAction(id, rate);
+    this.store.dispatch( action );
   }
 }

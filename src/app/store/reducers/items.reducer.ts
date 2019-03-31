@@ -50,8 +50,21 @@ export function itemsReducer( state = stateInit, action: fromItems.itemsActions 
                 ...state,
                 items: [...state.items,item]
             }
-        case fromItems.UPDATE_ITEM:
-            
+        case fromItems.UPDATE_ITEM_RATE:
+        
+            return  {
+                ...state,
+                items: [...state.items.map( itemEdit => {
+                    if( itemEdit.id === action.id ) {
+                        return {
+                            ...itemEdit,
+                            rating: action.rate
+                        };
+                    } else {
+                        return itemEdit;
+                    }
+                })]
+            }
         default:
             return state;
     }
