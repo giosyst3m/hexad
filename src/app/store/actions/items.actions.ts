@@ -6,6 +6,7 @@ export const LOAD_ITEMS_ERROR = '[Items](load) Error';
 export const LOAD_ITEMS_SUCCESS = '[Items](load) Success';
 export const ADD_ITEM = '[Items](add)';
 export const UPDATE_ITEM_RATE = '[Items](update) Rate';
+export const RAMDOM_ITEM_RATE = '[Items](update) Ramdom';
 
 
 export class LoadItems implements Action {
@@ -33,9 +34,15 @@ export class UpdateItemRateAction implements Action {
 
     constructor( public id: number, public rate: number ){}
 }
+export class RamdomItemRateAction implements Action {
+    readonly type = RAMDOM_ITEM_RATE;
+
+    constructor( public id: number, public ramdom: number ){}
+}
 export type itemsActions =  LoadItems |
                             LoadItemsError |
                             LoadItemsSuccess |
                             AddItemAction |
-                            UpdateItemRateAction
+                            UpdateItemRateAction |
+                            RamdomItemRateAction
                             

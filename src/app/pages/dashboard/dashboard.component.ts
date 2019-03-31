@@ -7,6 +7,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import * as itemsActions from '../../store/actions';
 import { Title } from '@angular/platform-browser';
+import { range, of, Subscription  } from 'rxjs';
+import { concatMap, delay } from 'rxjs/operators'
+
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +26,9 @@ export class DashboardComponent implements OnInit {
   rows: number = 0;
   rate = new FormControl(null, Validators.required);
   
+  isRamdom: boolean = true;
+  ramdomSubscription: Subscription = new Subscription();
+
   constructor( private  store: Store<AppState>,
     private _pnotify: PNotifyService, 
     private titleService: Title ) { 
@@ -83,4 +89,31 @@ export class DashboardComponent implements OnInit {
     const action = new itemsActions.UpdateItemRateAction(id, rate);
     this.store.dispatch( action );
   }
+
+  ramdom() {
+    let max = 1;
+    let min = 10;
+    if( this.isRamdom ) {
+      this.isRamdom = false;
+      this.pnotify.success({
+        title: `Ramdoming....`,
+      });
+      this.ramdomSubscription = range(0, this.items.length + 100).pipe(
+        concatMap(i => of(i).pipe(delay(250 + (Math.random() + 1000))))
+      ).subscribe( val => {
+        const ramdomId = this.items[~~(this.items.length * Math.random())].id;
+        const ramdomRate = Math.floor( Math.random() * ( 1 + max - min ) ) + min;
+        const action = new itemsActions.RamdomItemRateAction(ramdomId, ramdomRate);
+        this.store.dispatch( action );
+      });
+    } else {
+      this.pnotify.error({
+        title: `Stop Ramdoming`,
+      });
+      this.ramdomSubscription.unsubscribe();
+      this.isRamdom = true;
+    }
+    
+  }
+
 }

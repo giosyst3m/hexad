@@ -65,6 +65,21 @@ export function itemsReducer( state = stateInit, action: fromItems.itemsActions 
                     }
                 })]
             }
+        case fromItems.RAMDOM_ITEM_RATE:
+        return  {
+            ...state,
+            loaded: false,
+            items: [...state.items.map( itemEdit => {
+                if( itemEdit.id === action.id ) {
+                    return {
+                        ...itemEdit,
+                        rating: action.ramdom
+                    };
+                } else {
+                    return itemEdit;
+                }
+            })]
+        }
         default:
             return state;
     }
