@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class ItemService {
 
-  private url = '/assets/data/';
+  private url = '/assets/data';
 
   constructor( private http: HttpClient ) { }
 
