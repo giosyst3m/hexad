@@ -1,4 +1,3 @@
-import { APP_NAME } from './../../config/config';
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -18,6 +17,7 @@ export class ItemComponent implements OnInit {
   constructor(
       private store: Store<AppState>
   ) {
+    // Create FormGroup to get Data to create a new item
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       category: new FormControl('', [Validators.required]),
@@ -28,19 +28,24 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Save a item on the list in store.
+   */
   save() {
-    
+    // Valid form
     if( this.form.invalid ){
       return;
     }
-
+    // Create a accition to add new item
     const action = new fromItem.AddItemAction(
                         this.form.controls['name'].value, 
                         this.form.controls['category'].value,
                         this.form.controls['rating'].value
                         )
-  this.store.dispatch(action);
-   this.form.reset();
+    // Execute store with new action
+    this.store.dispatch(action);
+    // Clean form
+    this.form.reset();
   }
 
 }
