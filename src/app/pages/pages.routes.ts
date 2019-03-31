@@ -15,7 +15,7 @@ const PagesRoutes: Routes = [
                 path: 'dashboard',
                 component: DashboardComponent,
             },
-            {path: '', redirectTo: '/item', pathMatch: 'full' },
+            {path: '', redirectTo: '/dashboard', pathMatch: 'full' },
         ]
     },
 ];

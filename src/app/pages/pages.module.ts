@@ -1,3 +1,4 @@
+import { PipesModule } from './../pipes/pipes.module';
 import { PagesComponent } from './pages.component';
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
@@ -29,6 +30,7 @@ import { ItemComponent } from './item/item.component';
     ],
     imports: [
         CommonModule,
+        PipesModule,
         SharedModule,
         ErrorModule,
         PAGES_ROUTES,

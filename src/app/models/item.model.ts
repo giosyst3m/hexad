@@ -11,6 +11,5 @@ export class Item {
         let max: number  = 4000;
         let min: number = 1000;
         this.id = Math.floor(Math.random() * (max - min) + min);
-        console.log(this.id);
     }
 }

@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   loading: boolean; 
   error: any;
   pnotify = this._pnotify.getPNotify();
+  orderBy: string = '';
+  rows: number = 0;
 
   constructor( private  store: Store<AppState>,
     private _pnotify: PNotifyService, ) { 
@@ -25,6 +27,8 @@ export class DashboardComponent implements OnInit {
     this.store.select('items')
               .subscribe( resp => {
                 this.items = resp.items;
+                this.rows = resp.items.length;
+                this.sort('rating', 'asc');
                 this.loading = resp.loading;
                 if( resp.loaded ){
                   this.pnotify.success({
@@ -42,4 +46,30 @@ export class DashboardComponent implements OnInit {
     this.store.dispatch( new itemsActions.LoadItems() );
   }
 
+  sort(field:string = 'rating', order: string ="asc") {
+    this.orderBy = `Order by <b>${ field.toUpperCase() }</b> - <b>${ order.toUpperCase() }</b> Total <b>${ this.rows }</b>`;
+    return this.items.sort((a, b) => {
+      if( field == 'rating' ) {
+        if( order == 'asc') {
+          return b.rating - a.rating;
+        } else {
+          return a.rating - b.rating;
+        }
+      }
+      if( field == 'name' ) {
+        if( order == 'asc' ) {
+          return a.name.localeCompare(b.name);
+        } else {
+          return b.name.localeCompare(a.name);
+        }
+      }
+      if( field == 'category') {
+        if( order == 'asc' ) {
+          return a.category.localeCompare(b.category);
+        } else {
+          return b.category.localeCompare(a.category);
+        }
+      }
+    });
+  }
 }
