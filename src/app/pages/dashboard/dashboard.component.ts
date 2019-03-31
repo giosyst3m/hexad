@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms';
 import { PNotifyService } from './../../services/shared/p-notify.service';
 import { Item } from 'src/app/models/item.model';
 import { Component, OnInit } from '@angular/core';
@@ -18,9 +19,11 @@ export class DashboardComponent implements OnInit {
   pnotify = this._pnotify.getPNotify();
   orderBy: string = '';
   rows: number = 0;
+  rate = new FormControl(null, Validators.required);
 
   constructor( private  store: Store<AppState>,
     private _pnotify: PNotifyService, ) { 
+      
   }
 
   ngOnInit() {
@@ -71,5 +74,9 @@ export class DashboardComponent implements OnInit {
         }
       }
     });
+  }
+
+  save(id:number, rate:number ){
+    console.log(id, rate);
   }
 }

@@ -50,6 +50,8 @@ export function itemsReducer( state = stateInit, action: fromItems.itemsActions 
                 ...state,
                 items: [...state.items,item]
             }
+        case fromItems.UPDATE_ITEM:
+            
         default:
             return state;
     }

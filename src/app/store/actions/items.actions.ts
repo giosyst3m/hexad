@@ -5,6 +5,7 @@ export const LOAD_ITEMS = '[Items](load)';
 export const LOAD_ITEMS_ERROR = '[Items](load) Error';
 export const LOAD_ITEMS_SUCCESS = '[Items](load) Success';
 export const ADD_ITEM = '[Items](add)';
+export const UPDATE_ITEM = '[Items](update)';
 
 
 export class LoadItems implements Action {
@@ -27,9 +28,14 @@ export class AddItemAction implements Action {
         
     }
 }
+export class UpdateItemAction implements Action {
+    readonly type = UPDATE_ITEM;
 
+    constructor( public payload: any ){}
+}
 export type itemsActions =  LoadItems |
                             LoadItemsError |
                             LoadItemsSuccess |
-                            AddItemAction
+                            AddItemAction |
+                            UpdateItemAction
                             
