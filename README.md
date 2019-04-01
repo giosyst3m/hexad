@@ -33,6 +33,7 @@ URL: http://giosyst3m.net/hexad/assets/data/items.json
 
 You can Download assets folder form [assets Folder](http://giosyst3m.net/wp-content/uploads/2019/04/assets.zip  "assets Folder") 
 URL: http://giosyst3m.net/wp-content/uploads/2019/04/assets.zip 
+Unzip file and copy in `hexad/scr/`
 ```json
 [
     {
