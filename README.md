@@ -1,4 +1,10 @@
-# Gs3OrderFrontend
+# Wizard 
+
+![](http://giosyst3m.net/wp-content/uploads/2018/10/giosyst3m-logo-white-digital-color.png)
+
+[![](https://img.shields.io/badge/tag-v.1.0.0-blue.svg)](https://bitbucket.org/giosyst3m/wunderfleet)
+
+# Hexad Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
