@@ -2,7 +2,7 @@
 
 ![](http://giosyst3m.net/wp-content/uploads/2018/10/giosyst3m-logo-white-digital-color.png)
 
-[![](https://img.shields.io/badge/tag-v.2.0.0-blue.svg)](https://bitbucket.org/giosyst3m/wunderfleet)
+[![](https://img.shields.io/badge/tag-v.2.0.0-blue.svg)](https://github.com/giosyst3m/hexad)
 
 # Introducction
 It is a wizard where you get and save some information from your use.
@@ -17,7 +17,8 @@ It has been thinking mobil first
 ![](http://giosyst3m.net/wp-content/uploads/2019/04/Hexad-List-items.png)
 
 # Demo
-You can see themo click link [Demo](http://giosyst3m.net/hexad/ "Demo") `http://giosyst3m.net/hexad/`
+You can see themo click link [Demo](http://giosyst3m.net/hexad/ "Demo") 
+URL: http://giosyst3m.net/hexad/
 
 # Setup
 ## Clone Repository Hexad
@@ -27,9 +28,11 @@ or
 `git clone git@github.com:giosyst3m/hexad.git`
 
 ## items.json
-this is JSON fitle structure yyou can see a example in [items.json](http://giosyst3m.net/hexad/ "items.json") `http://giosyst3m.net/hexad/assets/data/items.json`
+this is JSON fitle structure yyou can see a example in [items.json](http://giosyst3m.net/hexad/assets/data/items.json "items.json") 
+URL: http://giosyst3m.net/hexad/assets/data/items.json
 
-You can Download assets folder form 
+You can Download assets folder form [assets Folder](http://giosyst3m.net/wp-content/uploads/2019/04/assets.zip  "assets Folder") 
+URL: http://giosyst3m.net/wp-content/uploads/2019/04/assets.zip 
 ```json
 [
     {
