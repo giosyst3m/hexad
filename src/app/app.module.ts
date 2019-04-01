@@ -1,7 +1,7 @@
 import { environment } from './../environments/environment';
 // Modules
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PagesModule } from './pages/pages.module';
 
 // Services
@@ -24,7 +24,7 @@ import { appEffects } from './store/effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +40,7 @@ import { appEffects } from './store/effects';
     }),
   ],
   providers: [Title],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

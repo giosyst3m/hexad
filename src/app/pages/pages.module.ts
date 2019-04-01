@@ -25,8 +25,9 @@ import { ItemComponent } from './item/item.component';
         ItemComponent,
     ],
     exports: [
+        PagesComponent,
         DashboardComponent,
-        PagesComponent
+        ItemComponent,
     ],
     imports: [
         CommonModule,
@@ -39,7 +40,7 @@ import { ItemComponent } from './item/item.component';
         ReactiveFormsModule,
         NgxPermissionsModule.forRoot(),
         NgbModule
-    ]
+    ],
 })
 
 export class PagesModule { }
